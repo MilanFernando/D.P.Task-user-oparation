@@ -13,9 +13,9 @@ public class UserRequest {
     private String username;
     @NotEmpty(message = "password is required")
     private String password;
-    @ValidatePhone(message="Phone number is required")
+    @ValidatePhone
     private String phoneNumber;
-    @ValidateNic(message = "Nic is required")
+    @ValidateNic
     private String nic;
 
 }

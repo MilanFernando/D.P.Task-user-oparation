@@ -17,10 +17,14 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String username;
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String password;
+    @Column(unique = true, nullable = false)
+    private String phoneNumber;
+    @Column(unique = true, nullable = false)
+    private String nic;
 
 
     public void setPassword(String password) {

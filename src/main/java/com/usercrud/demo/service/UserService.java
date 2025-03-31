@@ -47,7 +47,7 @@ public class UserService {
             user.setPassword(userRequest.getPassword());
 
             userRepo.save(user);
-            log.info("register -> saved"+ user);
+            log.info("register -> saved{}", user);
 
             return BaseResponse.builder()
                     .code("0000")

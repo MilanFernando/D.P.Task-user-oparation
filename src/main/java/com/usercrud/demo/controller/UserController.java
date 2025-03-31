@@ -7,6 +7,7 @@ import com.usercrud.demo.model.responce.BaseResponse;
 import com.usercrud.demo.model.responce.DefaultResponce;
 import com.usercrud.demo.service.UserService;
 import com.usercrud.demo.utils.ResponceUtil;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +17,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 @Slf4j
-public class UserAuthController {
+public class UserController {
     private final UserService userService;
 
 
     @PostMapping("/register")
-    public ResponseEntity<DefaultResponce> registerUser(@RequestBody UserRequest userDto) {
+    public ResponseEntity<DefaultResponce> registerUser(@Valid @RequestBody UserRequest userDto) {
         BaseResponse<?> response = userService.register(userDto);
         log.info("user registered");
         if (response.getCode().equals(ResponceUtil.SUCCESS_CODE)) {

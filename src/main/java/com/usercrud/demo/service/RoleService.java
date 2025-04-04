@@ -39,6 +39,7 @@ public class RoleService {
             permissions.add(permission);
         }
         role.setPermissions(permissions); // Assign permissions to the role
+        log.info("role.permission"+role);
         return roleRepo.save(role); // Save role with permissions
     }
 
